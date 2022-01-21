@@ -153,6 +153,10 @@ function ForgotPasswordPage() {
     const [successMsg, setSuccessMsg] = React.useState(false);
     const [loading, setLoading] = React.useState(false)
 
+    const handleMobileNumber = (e) => {
+        if(e.target.value>='0' && e.target.value<='9' ) setPhn(e.target.value);
+   }
+
     const handleClose = (reason) => {
         if (reason === 'clickaway') {
             return;
@@ -180,7 +184,7 @@ function ForgotPasswordPage() {
             <InnerTopConatiner container >
                 <Grid item xs={12} >
                     <ImageBox>
-                        <img src={logo}  />
+                        <img src={logo} />
                     </ImageBox>
                 </Grid>
             </InnerTopConatiner>
@@ -201,7 +205,7 @@ function ForgotPasswordPage() {
                     <Grid sm={4}>
                         <Box>
                             <InputHedaing >Mobile Number<span style={{ color: 'red' }}>*</span></InputHedaing>
-                            <input type="text" className="inputForm" value={phn} maxlength="10" onChange={(e) => setPhn(e.target.value)} />
+                            <input type="text" className="inputForm" value={phn} maxlength="10" onChange={handleMobileNumber} />
                         </Box>
                         <Box mt={6}>
                             {phn.length === 10 ?
